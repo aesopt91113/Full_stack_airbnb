@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2020_09_09_052026) do
     t.integer "baths"
     t.string "image_url"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
 
