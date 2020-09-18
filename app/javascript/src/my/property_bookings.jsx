@@ -201,7 +201,7 @@ class Property_bookings extends React.Component {
   renderCoverPic() {
     return this.state.selectedProperty.images[0] ? 
       <div className="property-image mb-3" id='pBookingsCover' style={{ backgroundImage: `url(${this.state.selectedProperty.images[0].image_url})` }} /> :
-      <h4>No image</h4>
+      <div className="property-image mb-3" id='pBookingsCover' style={{ backgroundImage: `url(${this.state.selectedProperty.image_url})` }} /> 
   }
 
   renderBookings() {
