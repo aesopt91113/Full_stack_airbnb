@@ -45,7 +45,6 @@ class Property extends React.Component {
       title,
       description,
       city,
-      country,
       property_type,
       price_per_night,
       max_guests,
@@ -54,11 +53,17 @@ class Property extends React.Component {
       baths,
       image_url,
       user,
+      images,
     } = property
 
+    console.log(property, 'render')
     return (
       <Layout authenticated={ this.state.authenticated }>
-        <div className="property-image mb-3" style={{ backgroundImage: `url(${image_url})` }} />
+         {
+          (image_url !== null) ?
+          <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${property.image_url})` }}/> :
+          <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${images[0].image_url})` }}/> 
+        }
         <div className="container">
           <div className="row">
             <div className="info col-12 col-lg-8">

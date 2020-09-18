@@ -7,12 +7,17 @@ import { handleErrors } from './utils/fetchHelper';
 import './home.scss';
 
 class Home extends React.Component {
-  state = {
-    properties: [],
-    total_pages: null,
-    next_page: null,
-    loading: true,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      properties: [],
+      total_pages: null,
+      next_page: null,
+      loading: true,
+    }
   }
+
 
   componentDidMount() {
     fetch('/api/properties?page=1')
@@ -53,8 +58,11 @@ class Home extends React.Component {
     })
   }
 
+
+
   render () {
     const { properties, next_page, loading } = this.state;
+    // var coverPic = null
 
     return (
       <Layout authenticated={ this.state.authenticated } username={ this.state.username }>
@@ -63,10 +71,18 @@ class Home extends React.Component {
           <p className="text-secondary mb-3">Explore some of the best-reviewed stays in the world</p>
           <div className="row">
             {properties.map(property => {
+              console.log(property)
+              const coverPic = property.images[0]
+          
+              console.log(coverPic)
               return (
                 <div key={property.id} className="col-6 col-lg-4 mb-4 property">
                   <a href={`/property/${property.id}`} className="text-body text-decoration-none">
-                    <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${property.image_url})` }} />
+                    {
+                      (property.image_url !== null) ?
+                      <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${property.image_url})` }}/> :
+                      <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${coverPic.image_url})` }}/> 
+                    }
                     <p className="text-uppercase mb-0 text-secondary"><small><b>{property.city}</b></small></p>
                     <h6 className="mb-0">{property.title}</h6>
                     <p className="mb-0"><small>${property.price_per_night} USD/night</small></p>
