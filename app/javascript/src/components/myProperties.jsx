@@ -50,7 +50,7 @@ class MyProperties extends React.Component {
           {
             properties.map(property => {
               if (!filterReg.test(property.title)) return null
-              
+              console.log(property)
               return (
                 <a href={`/host/homes/${urlUsername}/user_home/${property.id}/bookings`} key={property.id} className="col-6 col-lg-4 mb-4 property">
                   <div className="text-body text-decoration-none">
@@ -58,7 +58,8 @@ class MyProperties extends React.Component {
                     { 
                       property.images[0] ? 
                           <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${property.images[0].image_url})` }} />  : 
-                          <h4>No picture</h4>
+                          <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${property.image_url})` }} />
+                          // <h4>No picture</h4>
                     }
                     <p className="text-uppercase mb-0 text-secondary"><small><b>{property.city}</b></small></p>
                     <h6 className="mb-0">{property.title}</h6>
