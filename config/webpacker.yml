@@ -1,6 +1,10 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
   source_path: app/javascript
   source_entry_path: packs
   public_root_path: public
@@ -51,6 +55,7 @@ default: &default
 
 development:
   <<: *default
+  database: db/development.sqlite3
   compile: true
 
   # Verifies that correct packages and versions are installed by inspecting package.json, yarn.lock, and node_modules
