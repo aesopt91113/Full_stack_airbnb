@@ -178,7 +178,7 @@ class Property_bookings extends React.Component {
         editMode: false
       })
     })
-    location.href=`http://localhost:3000/host/homes/${selectedProperty.user.username}/user_home`
+    location.href=`/host/homes/${selectedProperty.user.username}/user_home`
   }
 
   renderEdit() {
