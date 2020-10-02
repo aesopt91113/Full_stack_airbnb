@@ -30,10 +30,11 @@ class MyProperties extends React.Component {
   render() {
     const { properties, filter } = this.state;
 
+    if (!properties) return <div>loading</div>
+    
     const filterReg = new RegExp(filter, 'i');
     const urlUsername = (window.location.pathname).split('/')[3];
-
-    if (!properties) return <div>loading</div>
+    console.log(urlUsername)
 
     return (
       <div className="container">
