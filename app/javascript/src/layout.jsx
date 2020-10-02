@@ -39,7 +39,7 @@ const Layout = (props) => {
           </ul>
         </div>
       </nav>
-      {props.children}
+      { authenticated === undefined ? <div>Loading</div> : props.children }
       <footer className="p-3 bg-light">
         <div>
           <p className="mr-3 mb-0 text-secondary">Airbnb Clone</p>

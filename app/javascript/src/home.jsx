@@ -18,7 +18,6 @@ class Home extends React.Component {
     }
   }
 
-
   componentDidMount() {
     fetch('/api/properties?page=1')
       .then(handleErrors)

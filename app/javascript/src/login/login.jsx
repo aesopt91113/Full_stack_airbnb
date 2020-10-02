@@ -32,7 +32,7 @@ class Login extends React.Component {
     const { authenticated, show_login } = this.state;
     if (authenticated) {
       return (
-        <Layout>
+        <Layout authenticated={authenticated}>
           <div className="container">
             <div className="row">
               <div className="col-12 col-md-9 col-lg-6 mx-auto my-4">
@@ -47,7 +47,7 @@ class Login extends React.Component {
     };
 
     return (
-      <Layout>
+      <Layout authenticated={authenticated}>
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-9 col-lg-6 mx-auto my-4">

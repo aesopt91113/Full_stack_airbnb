@@ -30,6 +30,15 @@ class Success extends React.Component {
         booking: null
       })
     })
+
+    fetch('/api/authenticated')
+    .then(handleErrors)
+    .then(data => {
+      this.setState({
+        authenticated: data.authenticated,
+        username: data.username,
+      })
+    })
   }
 
   render() {
@@ -43,13 +52,12 @@ class Success extends React.Component {
         end_date: endDate,
         charge: { id: chargeID, amount, complete, currency },
         property: { id: propertyID, title }
-      } 
+      },
+      booking, authenticated
     } = this.state;
 
-    const booking = this.state.booking
-
     return (
-      <Layout>
+      <Layout authenticated={authenticated}>
         <h3 className="pt-3 pl-5 pb-2" style={{ color: "red" }}>Congratulation! Your booking has been made.</h3>
         <div className="container">
           <div className="row mb-4">
