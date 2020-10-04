@@ -10,6 +10,8 @@ class Property extends React.Component {
   state = {
     property: {},
     loading: true,
+
+    authenticated: null,
   }
 
   componentDidMount() {
@@ -34,8 +36,8 @@ class Property extends React.Component {
   }
 
   render () {
-    const { property, loading } = this.state;
-    
+    const { property, loading, authenticated } = this.state;
+
     if (loading) {
       return <p>loading...</p>;
     };

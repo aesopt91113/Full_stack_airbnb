@@ -1,5 +1,5 @@
 import React from 'react';
-import { handleErrors, safeCredentials } from '@src/utils/fetchHelper';
+import { handleErrors } from '@src/utils/fetchHelper';
 
 import './myProperties.scss';
 

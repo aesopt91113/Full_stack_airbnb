@@ -34,8 +34,7 @@ class Home extends React.Component {
     fetch('/api/authenticated')
     .then(handleErrors)
     .then(data => {
-      console.log(data)
-      this.setState({
+        this.setState({
         authenticated: data.authenticated,
         username: data.username,
       })
@@ -71,7 +70,6 @@ class Home extends React.Component {
           <p className="text-secondary mb-3">Explore some of the best-reviewed stays in the world</p>
           <div className="row">
             {properties.map(property => {
-              console.log(property)
               const coverPic = property.images[0]
           
               return (
