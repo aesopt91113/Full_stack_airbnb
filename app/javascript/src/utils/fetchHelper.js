@@ -94,6 +94,9 @@ export function handleLogout() {
   .then(handleErrors)
   .then(() => {
     window.location.href="/"
+    this.setState ({
+      logoutStatus: true
+    })
   })
   .catch(error => {
     console.log("logout error", error);

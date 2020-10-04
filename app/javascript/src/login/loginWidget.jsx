@@ -8,6 +8,7 @@ class LoginWidget extends React.Component {
     email: '',
     password: '',
     error: '',
+    logoutStatus: false,
   }
 
   handleChange = (e) => {
@@ -37,6 +38,7 @@ class LoginWidget extends React.Component {
           const params = new URLSearchParams(window.location.search);
           const redirect_url = params.get('redirect_url') || '/';
           window.location = redirect_url;
+          logoutStatus = false;
         }
       })
       .catch(error => {

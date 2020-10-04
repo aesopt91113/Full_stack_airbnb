@@ -19,6 +19,7 @@ class Show_MyBookings extends React.Component  {
 
       paid: null,
       authenticated: null,
+      username: null,
     }
     
     this.renderPaidBookings = this.renderPaidBookings.bind(this);
@@ -31,6 +32,7 @@ class Show_MyBookings extends React.Component  {
     .then(data => {
       this.setState({
         authenticated: data.authenticated,
+        username: data.username,
       })
     })
 
@@ -68,12 +70,12 @@ class Show_MyBookings extends React.Component  {
   }
 
   render() {
-    const { bookings } = this.state;
+    const { bookings, username, authenticated } = this.state;
     const paidBookings = this.renderPaidBookings(bookings)
     const unpaidBookings = this.renderUnpaidBookings(bookings)
 
     return(
-      <Layout authenticated={ this.state.authenticated } >
+      <Layout authenticated={ authenticated } username={username} >
         <div>
           <h2 className="font-weight-bold p-4 ml-5" >My upcoming trips:</h2>
         </div>

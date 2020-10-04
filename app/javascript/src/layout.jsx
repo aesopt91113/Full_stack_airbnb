@@ -5,8 +5,8 @@ import { handleLogout } from '@src/utils/fetchHelper'
 import $ from 'jquery'
 
 const Layout = (props) => {
-  const { authenticated, username } = props;
-  
+  const { authenticated, username, logoutStatus } = props;
+  console.log(username)
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand navbar-light bg-light">
@@ -39,7 +39,8 @@ const Layout = (props) => {
           </ul>
         </div>
       </nav>
-      { authenticated === undefined ? <div>Loading</div> : props.children }
+      {console.log(logoutStatus)}
+      { logoutStatus !== true ? (authenticated === undefined ? <div>Loading</div> : props.children) : props.children }
       <footer className="p-3 bg-light">
         <div>
           <p className="mr-3 mb-0 text-secondary">Airbnb Clone</p>

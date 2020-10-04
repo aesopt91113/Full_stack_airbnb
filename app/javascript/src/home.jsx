@@ -15,6 +15,7 @@ class Home extends React.Component {
       total_pages: null,
       next_page: null,
       loading: true,
+      logoutStatus: true
     }
   }
 
@@ -33,6 +34,7 @@ class Home extends React.Component {
     fetch('/api/authenticated')
     .then(handleErrors)
     .then(data => {
+      console.log(data)
       this.setState({
         authenticated: data.authenticated,
         username: data.username,
@@ -61,10 +63,9 @@ class Home extends React.Component {
 
   render () {
     const { properties, next_page, loading } = this.state;
-    // var coverPic = null
 
     return (
-      <Layout authenticated={ this.state.authenticated } username={ this.state.username }>
+      <Layout authenticated={ this.state.authenticated } username={ this.state.username } logoutStatus={ this.state.logoutStatus }>
         <div className="container pt-4">
           <h4 className="mb-1">Top-rated places to stay</h4>
           <p className="text-secondary mb-3">Explore some of the best-reviewed stays in the world</p>
@@ -73,7 +74,6 @@ class Home extends React.Component {
               console.log(property)
               const coverPic = property.images[0]
           
-              console.log(coverPic)
               return (
                 <div key={property.id} className="col-6 col-lg-4 mb-4 property">
                   <a href={`/property/${property.id}`} className="text-body text-decoration-none">
