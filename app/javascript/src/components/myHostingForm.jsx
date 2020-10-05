@@ -226,9 +226,6 @@ class MyHostingForm extends React.Component {
                   <div className="custom-file">
                     <input type="file" className="custom-file-input" id="inputGroupFile02" onChange={(e) => this.handlePickFile(e, i)}/>
                     {
-                      // adjust thumbnail sizes here
-                      // known bug - if the the last photo was added and got deleted from the array the 'choose file' field also disappear  - one way to solve this problem is to add a field for property cover to make sure that at least the cover pic has to be uploaded
-
                       (image.file || image.image_url) ? 
                         <label className="custom-file-label downsizeThumbnail" htmlFor="inputGroupFile02" id="fileName" >{ image.file ? image.file.name : image.filename }</label> :
                         <label className="custom-file-label" htmlFor="inputGroupFile02" id="fileName">Choose file</label>

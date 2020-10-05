@@ -13,7 +13,7 @@ class CreateProperties < ActiveRecord::Migration[5.2]
       t.integer :baths
       t.string :image_url
       
-      t.belongs_to :user, index: true, foreign_key: true
+      t.belongs_to :user
 
       t.timestamps
     end
